@@ -4,7 +4,7 @@ EXPOSE 7000
 
 RUN \
   apk update && \
-  apk add openssl &&\
+  apk add openssl git &&\
   yarn global add pnpm
 
 COPY . /application
