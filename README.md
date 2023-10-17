@@ -34,8 +34,8 @@ To config your application, see [Use the local SSO in your application](#use-the
 1. Configure SSO settings in your application
    1. Add SSO Endpoint (default is `http://localhost:7000/saml/sso`)
    1. Copy the generated public cert to the application settings
-1. Add `issuer` to the root of the object exported from `config.local.js`
-   - `issuer` should point to the `SAML consumer URL` of your application
+1. Add `audience` to the root of the object exported from `config.local.js`
+   - `audience` should point to the `SAML consumer URL` of your application
      `docker build -t saml-idp .`
 
 ## Generating cert & key manually
