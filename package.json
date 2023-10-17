@@ -4,6 +4,11 @@
   "description": "Simple Saml IDP for development purposes",
   "main": "index.js",
   "scripts": {
+    "docker:build": "docker build -t saml-idp .",
+    "docker:start-recreate": "docker compose create --build --force-recreate && $npm_execpath docker:start",
+    "docker:start": "docker compose up -d",
+    "docker:stop": "docker compose stop",
+    "docker:get-certificate": "docker compose exec saml-idp cat /application/keys/idp-public-cert.pem",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./src/startServer.js "
   },
