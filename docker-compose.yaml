@@ -1,10 +1,15 @@
 version: "3.4"
 
+volumes:
+  keys:
+
 services:
   saml-idp:
     container_name: saml-idp
     image: saml-idp
     build: .
+    volumes:
+      - keys:/application/keys
     environment:
       - HOST=0.0.0.0
     ports:
