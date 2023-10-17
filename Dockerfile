@@ -1,6 +1,4 @@
-FROM node:18-alpine3.17
-
-EXPOSE 7000
+FROM node:18-alpine3.17 AS builder
 
 RUN \
   apk update && \
@@ -12,5 +10,14 @@ WORKDIR /application
 
 RUN \
   pnpm install
+
+
+FROM builder
+
+EXPOSE 7000
+
+COPY --from=builder /application /application
+
+WORKDIR /application
 
 ENTRYPOINT [ "/application/scripts/entrypoint.sh" ]
