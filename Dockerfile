@@ -4,12 +4,13 @@ EXPOSE 7000
 
 RUN \
   apk update && \
-  apk add openssl
+  apk add openssl &&\
+  yarn global add pnpm
 
 COPY . /application
 WORKDIR /application
 
 RUN \
-  yarn
+  pnpm install
 
 ENTRYPOINT [ "/application/scripts/entrypoint.sh" ]
