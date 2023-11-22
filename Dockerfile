@@ -20,4 +20,6 @@ COPY --from=builder /application /application
 
 WORKDIR /application
 
+RUN mkdir /application/keys
+
 ENTRYPOINT [ "/application/scripts/entrypoint.sh" ]
